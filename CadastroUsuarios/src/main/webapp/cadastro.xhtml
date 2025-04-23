@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="author" content="Bruno Célio" />
+	<meta http-equiv="content-language" content="pt-br" />
+	<meta name="robots" content="index, follow" />
+
+	<!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	<link rel="stylesheet" type="text/css" href="css/fonts-icones.css" />
+	<link rel="shortcut icon" href="img/favicon.png" />
+
+	<title>Cadastro de Usuários</title>
+</h:head>
+<h:body>
+
+	<!-- Formulário de cadastro -->
+
+	<h:panelGrid styleClass="main_header container">
+		<h:panelGrid styleClass="content">
+
+			<h:panelGrid styleClass="main_header_logo">
+				<h:graphicImage value="img/logo.png" />
+			</h:panelGrid>
+
+		</h:panelGrid>
+	</h:panelGrid>
+
+	<h:panelGrid styleClass="main_content container">
+
+
+		<h:panelGrid styleClass="section-seu-codigo container">
+
+			<h:panelGrid styleClass="content">
+				<h:outputText value="Cadastro de Usuários"
+					styleClass="icon icon-file-text-1 section_title" />
+				<h:panelGrid styleClass="box-artigo">
+
+					<h:panelGrid styleClass="formularioContato">
+
+						<h:form>
+							<h:outputLabel for="username">Nome do Usuário:</h:outputLabel>
+							<h:inputText id="username" value="#{userBean.username}" />
+							<h:commandButton value="Cadastrar"
+								action="#{userBean.addUsername}" />
+						</h:form>
+
+						<h2>Usuário Cadastrado:</h2>
+						<ul>
+							<ui:repeat value="#{userBean.userList}" var="user">
+								<li>#{user}</li>
+							</ui:repeat>
+						</ul>
+
+					</h:panelGrid>
+				</h:panelGrid>
+
+				<h:panelGrid styleClass="clear" />
+
+			</h:panelGrid>
+
+		</h:panelGrid>
+
+	</h:panelGrid>
+</h:body>
+</html>
